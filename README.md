@@ -16,7 +16,7 @@ This project serves as the backend for an **Airbnb Clone**, offering a robust, s
 
 ---
 
-## 🛠️ Features Overview
+## 🛠️ Feature Breakdown
 
 ### 1. API Documentation
 - **OpenAPI Standard**: APIs follow the OpenAPI standard for clarity and integration ease.
