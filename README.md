@@ -88,58 +88,8 @@ This project serves as the backend for an **Airbnb Clone**, offering a robust, s
 
 ---
 
-## 📈 API Documentation Overview
 
-### REST API
-Fully documented using OpenAPI (Swagger) covering endpoints for:
-- Users
-- Properties
-- Bookings
-- Payments
-- Reviews
-
-### GraphQL API
-- Allows clients to query only the data they need.
-- Reduces over-fetching and under-fetching problems common in REST.
-
----
-
-## 📌 Endpoint Summary
-
-### 🔐 Users
-```http
-GET /users/
-POST /users/
-GET /users/{user_id}/
-PUT /users/{user_id}/
-DELETE /users/{user_id}/
-
-🏠 Properties
-GET /properties/
-POST /properties/
-GET /properties/{property_id}/
-PUT /properties/{property_id}/
-DELETE /properties/{property_id}/
-
-📅 Bookings
-GET /bookings/
-POST /bookings/
-GET /bookings/{booking_id}/
-PUT /bookings/{booking_id}/
-DELETE /bookings/{booking_id}/
-
-💳 Payments
-POST /payments/
-
-⭐ Reviews
-GET /reviews/
-POST /reviews/
-GET /reviews/{review_id}/
-PUT /reviews/{review_id}/
-DELETE /reviews/{review_id}/
-
-
-🗃️ Database Design
+## 🗃️ Database Design
 This section describes the core entities in the Airbnb Clone backend and how they relate to each other.
 
 1. User
@@ -264,6 +214,53 @@ One Property ↔️ Many Reviews
 
 One Booking ↔️ One Payment
 
+## 📈 API Documentation Overview
 
+### REST API
+Fully documented using OpenAPI (Swagger) covering endpoints for:
+- Users
+- Properties
+- Bookings
+- Payments
+- Reviews
 
+### GraphQL API
+- Allows clients to query only the data they need.
+- Reduces over-fetching and under-fetching problems common in REST.
+
+---
+
+## 📌 Endpoint Summary
+
+### 🔐 Users
+```http
+GET /users/
+POST /users/
+GET /users/{user_id}/
+PUT /users/{user_id}/
+DELETE /users/{user_id}/
+
+🏠 Properties
+GET /properties/
+POST /properties/
+GET /properties/{property_id}/
+PUT /properties/{property_id}/
+DELETE /properties/{property_id}/
+
+📅 Bookings
+GET /bookings/
+POST /bookings/
+GET /bookings/{booking_id}/
+PUT /bookings/{booking_id}/
+DELETE /bookings/{booking_id}/
+
+💳 Payments
+POST /payments/
+
+⭐ Reviews
+GET /reviews/
+POST /reviews/
+GET /reviews/{review_id}/
+PUT /reviews/{review_id}/
+DELETE /reviews/{review_id}/
 
