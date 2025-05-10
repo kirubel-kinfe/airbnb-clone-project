@@ -90,6 +90,7 @@ This project serves as the backend for an **Airbnb Clone**, offering a robust, s
 
 
 ## 🗃️ Database Design
+
 This section describes the core entities in the Airbnb Clone backend and how they relate to each other.
 
 1. User
@@ -213,6 +214,95 @@ One Property ↔️ Many Bookings
 One Property ↔️ Many Reviews
 
 One Booking ↔️ One Payment
+
+---
+
+## 🔐 API Security
+
+Securing the backend APIs is critical to protect sensitive data, ensure system integrity, and maintain user trust. This project implements several key security measures across all endpoints and services.
+
+🔑 1. Authentication
+Purpose: Ensure that only registered users can access protected resources.
+
+Implementation:
+
+Uses JWT (JSON Web Tokens) for stateless authentication.
+
+Token is issued during login and must be sent in the Authorization header for protected endpoints.
+
+Supports token expiration and refresh token mechanism for long-term access.
+
+Why it matters:
+Protects user accounts and personal data from unauthorized access.
+
+🛡️ 2. Authorization
+Purpose: Restrict actions based on user roles and permissions.
+
+Implementation:
+
+Role-based access control (RBAC) for distinguishing between hosts and guests.
+
+Certain endpoints (e.g., creating properties, accessing bookings) are restricted based on the user's role.
+
+Django permissions and custom decorators enforce access rules.
+
+Why it matters:
+Prevents unauthorized users from performing actions like modifying someone else’s property or accessing other users’ bookings.
+
+📊 3. Rate Limiting
+Purpose: Prevent abuse of the API (e.g., brute-force attacks, denial of service).
+
+Implementation:
+
+Middleware (e.g., Django Ratelimit or throttling from Django REST Framework) to cap the number of requests per IP or user.
+
+Adjustable thresholds for different endpoints.
+
+Why it matters:
+Protects the API from malicious users who might overload the server or attempt to break authentication through brute force.
+
+🧊 4. Data Validation and Sanitization
+Purpose: Protect against injection attacks and malformed input.
+
+Implementation:
+
+Use of Django and DRF serializers to validate and sanitize all incoming data.
+
+Custom validators to enforce domain-specific rules.
+
+Why it matters:
+Prevents SQL injection, XSS, and other forms of input-based attacks that could compromise the application.
+
+🔒 5. HTTPS Enforcement
+Purpose: Encrypt data in transit between client and server.
+
+Implementation:
+
+All production deployments will enforce HTTPS using secure SSL/TLS certificates (e.g., via Nginx + Let's Encrypt).
+
+Why it matters:
+Protects sensitive data like passwords, tokens, and payment info from being intercepted during transmission.
+
+💳 6. Payment Security
+Purpose: Safeguard financial transactions and user billing data.
+
+Implementation:
+
+Payments processed via third-party providers (e.g., Stripe) with secure APIs.
+
+Backend never stores raw payment details—only transaction references and statuses.
+
+Why it matters:
+Avoids exposure of critical financial information and ensures compliance with industry standards like PCI-DSS.
+
+✅ Additional Security Practices
+CORS Management: Configured to allow requests only from trusted frontend domains.
+
+Environment Variables: Secrets and API keys are never hardcoded; managed via .env files.
+
+Logging & Monitoring: All authentication failures and suspicious activities are logged and reviewed.
+
+---
 
 ## 📈 API Documentation Overview
 
