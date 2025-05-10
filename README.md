@@ -139,6 +139,130 @@ PUT /reviews/{review_id}/
 DELETE /reviews/{review_id}/
 
 
+🗃️ Database Design
+This section describes the core entities in the Airbnb Clone backend and how they relate to each other.
+
+1. User
+Represents guests and hosts.
+
+Key Fields:
+
+id: Unique identifier
+
+username: Display name or login name
+
+email: Unique user email address
+
+password: Encrypted password
+
+role: Either "host" or "guest"
+
+Relationships:
+
+A user can own multiple properties (if they are a host).
+
+A user can create multiple bookings (if they are a guest).
+
+A user can write multiple reviews.
+
+2. Property
+Represents a listing that users can book.
+
+Key Fields:
+
+id: Unique identifier
+
+title: Name or short description of the property
+
+description: Detailed information about the property
+
+location: Address or city
+
+price_per_night: Cost per night
+
+Relationships:
+
+A property is owned by one user (host).
+
+A property can have multiple bookings.
+
+A property can have multiple reviews.
+
+3. Booking
+Represents a reservation made by a guest.
+
+Key Fields:
+
+id: Unique identifier
+
+user_id: Reference to the guest
+
+property_id: Reference to the booked property
+
+check_in_date: Start of stay
+
+check_out_date: End of stay
+
+Relationships:
+
+A booking is made by one user.
+
+A booking is for one property.
+
+A booking has one payment.
+
+4. Payment
+Represents the transaction for a booking.
+
+Key Fields:
+
+id: Unique identifier
+
+booking_id: Reference to the booking
+
+amount: Total payment amount
+
+status: Payment status (e.g., "pending", "completed")
+
+payment_date: Timestamp of the transaction
+
+Relationships:
+
+A payment is linked to one booking.
+
+5. Review
+Represents feedback left by guests.
+
+Key Fields:
+
+id: Unique identifier
+
+user_id: Reference to the reviewer (guest)
+
+property_id: Reference to the reviewed property
+
+rating: Star rating (1–5)
+
+comment: Textual review
+
+Relationships:
+
+A review is written by one user.
+
+A review is for one property.
+
+🔄 Entity Relationship Summary
+One User ↔️ Many Properties
+
+One User ↔️ Many Bookings
+
+One User ↔️ Many Reviews
+
+One Property ↔️ Many Bookings
+
+One Property ↔️ Many Reviews
+
+One Booking ↔️ One Payment
 
 
 
